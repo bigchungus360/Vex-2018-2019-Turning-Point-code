@@ -4,6 +4,6 @@
 // Sets the speeds of the left and right wheels of the chassis
 void chassisSet(int left, int right);
 //Drive forward with PID
-void drivePID();
+void driveForDistancePID(int distance, int speed_PID);
 
 #endif // _CHASSIS_H_

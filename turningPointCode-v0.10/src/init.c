@@ -38,7 +38,7 @@ void initialize() {
   // initialize Quadratic encoders
   bool is_reversed = true;
   bool not_reversed = false;
-  encoderLD = encoderInit(ENC_LT_DRIVE, ENC_LB_DRIVE, not_reversed);
-  encoderRD = encoderInit(ENC_RT_DRIVE, ENC_RB_DRIVE, is_reversed);
+  encoderLD = encoderInit(ENC_LT_DRIVE, ENC_LB_DRIVE, is_reversed);
+  encoderRD = encoderInit(ENC_RT_DRIVE, ENC_RB_DRIVE, not_reversed);
   speakerInit();
 }

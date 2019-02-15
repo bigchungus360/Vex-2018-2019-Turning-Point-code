@@ -6,8 +6,23 @@
 #include "lift.h" // redundant, but ensures that the corresponding header file (lift.h) is included
 #include "flippy.h" // redundant, but ensures that the corresponding header file (flippy.h) is included
 #include "ports.h" //includes ports.h which lists all motor ports
+#include "intake.h"
 
 void operatorControl() {
+
+	//DISABLE IF COMP.
+	/*
+	bool auto_run = true;
+	while(auto_run == true) {
+		if(joystickGetDigital(1, 7, JOY_UP)) {
+			autonomous();
+		}
+		if(joystickGetDigital(1, 7, JOY_RIGHT)) {
+			auto_run = false;
+		}
+	}
+	*/
+
 	int left, right;
   int deadZone = 10; //amount of excluded deadzone
   int togglespeed = 1;
@@ -21,10 +36,10 @@ void operatorControl() {
 			right = 0;
 		}
     if(togglespeed == -1) {
-      chassisSet(left / 2, -right / 2);
+      chassisSet(left / 2, right / 2);
     }
     else {
-      chassisSet(left, -right);
+      chassisSet(left, right);
     }
 
     //togglespeed Code
@@ -44,18 +59,28 @@ void operatorControl() {
 		}
 
     //flippy Code
-		if(joystickGetDigital(1, 5, JOY_UP)) {
-			 flipSet(40);
+		if(joystickGetDigital(1, 7, JOY_DOWN)) {
+			 flipSet(127);
 		}
-		else if(joystickGetDigital(1, 5, JOY_DOWN)) {
-			 flipSet(-40);
+		else if(joystickGetDigital(1, 7, JOY_RIGHT)) {
+			 flipSet(-127);
 		}
 		else {
 			 flipSet(0);
 		}
 
+		//intake Code
+		if(joystickGetDigital(1, 5, JOY_UP)) {
+			intakeSet(127);
+		}
+		else if(joystickGetDigital(1, 5, JOY_DOWN)) {
+			intakeSet(-127);
+		}
+		else {
+			intakeSet(-50);
+		}
 		//Celebration Code
-		if(joystickGetDigital(1, 7, JOY_DOWN)) {
+		/*if(joystickGetDigital(1, 7, JOY_UP)) {
 			const char* rtttl[] = {
     	"Super Mario:d=4,o=5,b=100:"
       	"16e6,16e6,32p,8e6,16c6,8e6,8g6,8p,8g,8p,"
@@ -76,7 +101,7 @@ void operatorControl() {
     		NULL
   		};
   		speakerPlayArray(rtttl);
-		}
+		}*/
 
     delay(20);
     }

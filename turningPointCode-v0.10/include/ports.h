@@ -7,7 +7,7 @@
 #define R_DRIVE 3
 #define LIFT 4
 #define FLIPPY 5
-
+#define INTAKE 6
 //Sensor ports
 #define ENC_LT_DRIVE 1
 #define ENC_LB_DRIVE 2

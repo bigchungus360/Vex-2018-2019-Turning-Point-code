@@ -9,29 +9,32 @@
  #include "ports.h" //includes ports.h which lists all motor ports
 
 void autonomous() {
-  chassisSet(-90, 127);
-  delay(2000);
-  chassisSet(90, -127);
-  delay(2000);
-  chassisSet(90, 127);
-  delay(740);
-  chassisSet(90, -127);
-  delay(1000);
-  chassisSet(90, 127);
-  delay(760);
-  chassisSet(-90, 127);
-  delay(2400);
-  //chassisSet(100, -127);
-  //delay(1500);
-//  print
-  //chassisSet(0, 0);
-  //delay(1000000000);
-  //delay(1000);
-  /*driveForDistancePID(5, -127);
 
+  /*driveForDistancePID(120, -127); //backwards
+  driveForDistancePID(120, 127); //forwards
   chassisSet(127, -127);
   delay(100);
+  driveForDistancePID(120, -127); //backwards*/
 
-  driveForDistancePID(5, 127);
-  */
+  chassisSet(-127, -127);
+  delay(2000);
+
+  //RED PARK
+  //chassisSet(-127, 127);
+  //delay(100);
+
+  chassisSet(127, 127);
+  delay(3000);
+
+  //BLUE PARK
+  chassisSet(-127, 127);
+  delay(740);
+
+  //RED PARK
+  //chassisSet(127, -127);
+  //delay(600);
+
+  chassisSet(-127, -127);
+  delay(3200);
+
 }
